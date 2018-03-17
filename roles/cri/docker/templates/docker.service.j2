@@ -13,7 +13,10 @@ ExecStart={{ dir.bin }}/dockerd {% if ansible_os_family == 'Debian' -%} -H fd://
   $DOCKER_NETWORK_OPTIONS \
   $ADD_REGISTRY \
   $BLOCK_REGISTRY \
-  $INSECURE_REGISTRY
+  $INSECURE_REGISTRY \
+  --insecure-registry hub.lingyi.com {% if local_registry.insecure %}\
+  --insecure-registry {{ local_registry.insecure_registry }}
+  {% endif %}
 
 ExecReload=/bin/kill -s HUP $MAINPID
 Restart={{ systemd.restart }}

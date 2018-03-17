@@ -18,3 +18,7 @@
     - Enable and restart Docker engine
     - Write system variables for Kubernetes
     - Enable system variables for Kubernetes
+
+- name: Self signed certificate
+  include_tasks: add-crt.yml
+  when: local_registry.secure

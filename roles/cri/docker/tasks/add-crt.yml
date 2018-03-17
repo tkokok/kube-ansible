@@ -1,0 +1,7 @@
+---
+
+- name: Insert crt
+  shell: "{{ secure_registry_cmd }}"
+
+- name: Reload and restart docker daemon
+  shell: shell: "systemctl daemon-reload; systemctl restart docker "
