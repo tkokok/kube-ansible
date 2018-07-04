@@ -8,3 +8,5 @@ hosts
 inventory
 .keys/
 .venv/
+
+.idea

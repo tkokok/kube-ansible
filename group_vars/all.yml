@@ -34,7 +34,7 @@ lb_api_url: "https://{{ lb_vip_address }}:{{ lb_secure_port }}"
 
 # Etcd configuration variables.
 etcd_initial_token: etcd-k8s-cluster
-etcd_domain_name: test.etcd.com
+etcd_domain_name: etcd.tkokok.top
 etcd_iface: ""
 
 # A list of insecure registrys you might need to define
@@ -78,13 +78,12 @@ ingress: false
 ingress_type: nginx # support: nginx or traefik.
 
 
-
 # NEW REGISTRY MANAGEMENT SYSTEM
 local_registry:
   secure: false
-  secure_registry: "172.16.20.158"
+  secure_registry: "hub.tkokok.top"
   insecure: true
-  insecure_registry: "172.16.20.143"
+  insecure_registry: "192.168.1.185"
   official_registry: "docker.io"
 
 registry_namespace: "kubernetes"
@@ -95,7 +94,7 @@ final_registry_url: "{% if local_registry.insecure %}{{local_registry.insecure_r
 
 
 # localrepository
-local_repository: http://172.18.210.253/repo/k8s
+local_repository: http://192.168.1.181/repo/k8s
 #https://gitee.com/liu-rui/repo/raw/master
 
 
@@ -114,5 +113,5 @@ proxy_env:
 
 # Offline mode area
 repos_offline: false
-repos_port: 4040
-repos_offline_url: "http://172.16.35.9:{{ repos_port }}"
+repos_port: 80
+repos_offline_url: "http://172.16.20.143:{{ repos_port }}"

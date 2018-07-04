@@ -8,7 +8,8 @@
 - hosts: etcds
   become: yes
   roles:
-   - { role: etcd, tags: etcd }
+    - { role: gen-certs, tags: gen-certs }
+    - { role: etcd, tags: etcd }
 
 - hosts: kube-cluster
   become: yes
@@ -22,6 +23,11 @@
     - { role: kubernetes/gen-configs, node_role: "master", tags: master-gen-config }
     - { role: kubernetes/ha, tags: ha }
     - { role: kubernetes/master, tags: master }
+
+- hosts: etcds
+  become: yes
+  roles:
+    - { role: kubernetes/ha, tags: ha }
 
 - hosts: nodes
   become: yes
