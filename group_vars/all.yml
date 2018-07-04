@@ -1,7 +1,9 @@
 ---
 
 # Kubenrtes version, only support 1.7.0+.
+
 kube_version: 1.9.0
+#kube_version: 1.10.0
 
 # CRI plugin,
 # Supported: docker, containerd.
