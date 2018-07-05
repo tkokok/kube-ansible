@@ -30,7 +30,7 @@ haproxy: true
 keepalived: true # set `lb_vip_address` as keepalived vip, if this enable.
 keepalived_vip_interface: "{{ ansible_default_ipv4.interface }}"
 
-lb_vip_address: 172.16.35.9
+lb_vip_address: 10.0.100.100
 lb_secure_port: 6443
 lb_api_url: "https://{{ lb_vip_address }}:{{ lb_secure_port }}"
 
@@ -72,11 +72,11 @@ kube_proxy_mode: iptables # support: iptables, userspace or ipvs(alpha).
 kube_proxy_ipvs_scheduler: rr # depend on ipvs mode.
 
 # Extra addons
-kube_dashboard: false
-kube_logging: false
-kube_monitoring: false
+kube_dashboard: true
+kube_logging: true
+kube_monitoring: true
 
-ingress: false
+ingress: true
 ingress_type: nginx # support: nginx or traefik.
 
 

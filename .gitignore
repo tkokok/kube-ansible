@@ -1,12 +1,16 @@
 .vagrant
 .DS_Store
-*.retry
 tmp
 tmp/*
-hosts
 *.ovpn
-inventory
 .keys/
 .venv/
 
+# IDE
 .idea
+
+# Ansible Files
+*.retry
+hosts
+inventory
+cluster-inventory.*
