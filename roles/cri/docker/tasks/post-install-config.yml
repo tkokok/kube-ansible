@@ -1,0 +1,14 @@
+---
+
+- name: Add local secure proxy
+  shell: "echo {{ local_registry.secure_proxy }} {{ local_registry.secure_registry }} >> /etc/hosts"
+  when: local_registry.proxy
+
+- name: Import self signed certificate
+  shell: "{{ import_certificate }}"
+  when: local_registry.self_signed_certificate
+  register: cert_injected
+
+- name: Reload and restart docker daemon
+  shell: "systemctl daemon-reload; systemctl restart docker"
+  when: cert_injected

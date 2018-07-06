@@ -1,9 +1,13 @@
 ---
 
-# Kubenrtes version, only support 1.7.0+.
+# Update:
+#   Jul 7th 2018
 
-kube_version: 1.9.0
-#kube_version: 1.10.0
+# Validate version: choose one below
+#   1.9.0 - 1.9.9
+#   1.10.0 - 1.10.5
+#   1.11.0
+kube_version: 1.9.9
 
 # CRI plugin,
 # Supported: docker, containerd.
@@ -68,7 +72,7 @@ dns_name: cluster.local # cluster dns name
 dns_ip: "{{ cluster_subnet }}.10"
 
 kube_proxy: true
-kube_proxy_mode: iptables # support: iptables, userspace or ipvs(alpha).
+kube_proxy_mode: ipvs # support: iptables, userspace or ipvs(alpha).
 kube_proxy_ipvs_scheduler: rr # depend on ipvs mode.
 
 # Extra addons
@@ -80,18 +84,29 @@ ingress: true
 ingress_type: nginx # support: nginx or traefik.
 
 
+###
+# resistry:    Docker Harbor          -- docker container
+# repository:  Apache or nginx server -- static files
+
+
 # NEW REGISTRY MANAGEMENT SYSTEM
 local_registry:
-  secure: false
-  secure_registry: "hub.tkokok.top"
-  insecure: true
+  # if
+  insecure: false
   insecure_registry: "192.168.1.185"
+  # elif
+  secure: true
+  proxy: true
+  self_signed_certificate: false
+  secure_registry: "hub.tkokok.top"
+  secure_proxy: "192.168.1.180"
+  # else
   official_registry: "docker.io"
 
 registry_namespace: "kubernetes"
 
-# Insert the pem key to each host
-secure_registry_cmd: "curl http://172.18.210.253/crt/lingyi-docker-registry.pem >> /etc/pki/tls/certs/ca-bundle.crt"
+# Inject the certificate(pem-key) to each host
+import_certificate: "curl http://172.18.210.253/crt/lingyi-docker-registry.pem >> /etc/pki/tls/certs/ca-bundle.crt"
 final_registry_url: "{% if local_registry.insecure %}{{local_registry.insecure_registry}}{% elif local_registry.secure %}{{local_registry.secure_registry}}{% else %}{{local_registry.official_registry}}{% endif %}"
 
 

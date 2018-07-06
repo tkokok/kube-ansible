@@ -19,6 +19,6 @@
     - Write system variables for Kubernetes
     - Enable system variables for Kubernetes
 
-- name: Self signed certificate
-  include_tasks: add-crt.yml
+- name: Post install configuration
+  include_tasks: post-install-config.yml
   when: local_registry.secure
