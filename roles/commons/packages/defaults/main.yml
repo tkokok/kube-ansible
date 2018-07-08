@@ -13,7 +13,7 @@ bases:
     version: 3.2.9
   docker:
     url: "{{ local_repository }}/docker"
-    version: 17.09.0-ce
+    version: 18.03.1-ce
   cri_containerd:
     url: "https://github.com"
     version: 1.0.0-alpha.1
@@ -27,10 +27,10 @@ bases:
     url: "{{ local_repository }}/helm"
     version: 2.7.0
   cfssl:
-    url: "https://pkg.cfssl.org"
+    url: "{{ local_repository }}/cfssl"
     version: 1.2
   cfssljson:
-    url: "https://pkg.cfssl.org"
+    url: "{{ local_repository }}/cfssl"
     version: 1.2
   sigil:
     url: "https://github.com"
