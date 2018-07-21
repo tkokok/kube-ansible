@@ -14,7 +14,7 @@ ExecStart={{ dir.bin }}/dockerd {% if ansible_os_family == 'Debian' -%} -H fd://
   $ADD_REGISTRY \
   $BLOCK_REGISTRY \
   $INSECURE_REGISTRY \
-  --insecure-registry hub.lingyi.com {% if local_registry.insecure %}\
+  --insecure-registry hub.casicloud.com {% if local_registry.insecure %}\
   --insecure-registry {{ local_registry.insecure_registry }}
   {% endif %}
 

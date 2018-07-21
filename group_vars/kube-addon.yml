@@ -14,6 +14,7 @@ addon_images:
   grafana: "{{ final_registry_url }}/kubernetes/heapster-grafana-amd64:v4.4.3"
   # Kubernetes logging
   elasticsearch: "{{ final_registry_url }}/kubernetes/elasticsearch:v5.6.2"
+  alpine: "{{ final_registry_url }}/kubernetes/alpine:3.6"
   fluentd: "{{ final_registry_url }}/kubernetes/fluentd-elasticsearch:v2.0.2"
   kibana: "{{ final_registry_url }}/kubernetes/kibana:5.6.2"
   # Ingress controller
@@ -22,7 +23,7 @@ addon_images:
   traefik: "{{ final_registry_url }}/kubernetes/traefik:v1.5-alpine"
   # Kube-proxy
   kube_proxy: "{{ final_registry_url }}/kubernetes/kube-proxy-amd64:v{{ kube_version }}"
-  
+
 # Kube-addons resources
 num_nodes: "{{ groups['kube-cluster'] | length }}"
 base_metrics_memory: 140Mi

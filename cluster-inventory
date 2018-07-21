@@ -1,31 +1,19 @@
-#172.16.20.164
-#172.16.20.157
-#172.16.30.54
-#172.16.60.105
-#172.16.50.25
-
-172.16.60.100
-172.16.60.98
-172.16.60.109
-172.16.60.108
-172.16.60.101
-
 [etcds]
-172.16.60.100
-172.16.60.98
-172.16.60.109
+10.0.20.[1:3]
 
 [masters]
-172.16.60.100
-172.16.60.98
-172.16.60.109
+10.0.10.[1:3]
 
 [nodes]
-172.16.60.108
-172.16.60.101
+10.0.20.1[1:8]
+
+[certs:children]
+masters
+etcds
 
 [kube-cluster:children]
 masters
+etcds
 nodes
 
 [kube-addon:children]
@@ -33,4 +21,4 @@ masters
 
 [all:vars]
 ansible_user=root
-ansible_password=123456
+ansible_password=PASSWD

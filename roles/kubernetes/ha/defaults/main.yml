@@ -1,9 +1,9 @@
 ---
 
 keepalived_check_ip: any
-keepalived_check_port: 2379
+keepalived_check_port: 6443
 keepalived_check_vid: 53
-keepalived_check_vmask: 24
+keepalived_check_vmask: 32
 
 haproxy_etc_dir: /etc/haproxy
 haproxy_admin_port: 9090

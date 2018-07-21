@@ -5,12 +5,12 @@ master_hosts: "{{ lb_vip_address }},{% for node in groups['masters'] %}{{ node }
 apiserver_hosts: "{{ kubernetes_service_ip }},{{ master_hosts }},127.0.0.1,kubernetes.default,kubernetes"
 ca_config: "{{ dir.gen_ssl }}/ca-config.json"
 key:
-  algo: rsa
+  algo: "rsa"
   size: 2048
 info:
-  country: TW
-  state: Taipei
-  locality: "Taipei city"
-  org_uit: Kubernetes-ansible
+  country: "CN"
+  state: "BeiJing"
+  locality: "BeiJing"
+  org_uit: "CASICloud"
   expiry: 87600h
   profile: kubernetes

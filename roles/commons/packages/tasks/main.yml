@@ -28,10 +28,6 @@
   when: 'pkg is defined and not "unarchive" in pkg'
   include_tasks: binary-file.yml
 
-- name: Handle containerd pakcages
-  when: pkg is defined and pkg.name == 'cri_containerd'
-  include_tasks: containerd.yml
-
 - name: "Symlinks {{ pkg.description }} component"
   when: 'pkg is defined and "symlinks" in pkg and pkg_copy'
   file:

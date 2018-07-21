@@ -11,6 +11,8 @@
     dest: "{{ dir.download }}/{{ pkg.file }}"
     validate_certs: False
   environment: "{{ proxy_env }}"
+  retries: 3
+  delay: 15
   register: pkg_download
 
 - name: "Extract {{ pkg.description }} file"

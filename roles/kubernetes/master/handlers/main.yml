@@ -6,7 +6,7 @@
     port: "{{ item }}"
     delay: 1
     connect_timeout: 10
-    timeout: 100
+    timeout: 600
   with_items:
     - "6443"
     - "{{ api_secure_port }}"

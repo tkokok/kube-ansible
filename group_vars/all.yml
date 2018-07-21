@@ -1,5 +1,4 @@
 ---
-
 # Update:
 #   Jul 7th 2018
 
@@ -8,10 +7,6 @@
 #   1.10.0 - 1.10.5
 #   1.11.0
 kube_version: 1.9.9
-
-# CRI plugin,
-# Supported: docker, containerd.
-cri_plugin: docker
 
 # CNI plugin,
 # Supported: calico, flannel, weave, canal or router.
@@ -43,23 +38,12 @@ etcd_initial_token: etcd-k8s-cluster
 etcd_domain_name: etcd.tkokok.top
 etcd_iface: ""
 
-# A list of insecure registrys you might need to define
-add_registry:
-# - "gcr.io"
-
-insecure_registrys:
-# - "172.16.35.9:5000"
-
-docker_opts:
-# - "HTTP_PROXY=http://proxy.example.com:80/"
-# - "HTTPS_PROXY=https://proxy.example.com:443/"
-
 # Kubernetes authentication and security
 bootstrap_token: b96cee11d16de85256d63efd2e18e7d8
 extra_auth:
   basic:
     accounts:
-    - 'p@ssw0rd,admin,admin'
+    - 'admin,p@ssw0rd,admin'
   # token:
   #   values:
   #   - "0fdd1a8875ec,admin,admin"
@@ -82,7 +66,6 @@ kube_monitoring: true
 
 ingress: true
 ingress_type: nginx # support: nginx or traefik.
-
 
 ###
 # resistry:    Docker Harbor          -- docker container
@@ -109,16 +92,29 @@ registry_namespace: "kubernetes"
 import_certificate: "curl http://172.18.210.253/crt/lingyi-docker-registry.pem >> /etc/pki/tls/certs/ca-bundle.crt"
 final_registry_url: "{% if local_registry.insecure %}{{local_registry.insecure_registry}}{% elif local_registry.secure %}{{local_registry.secure_registry}}{% else %}{{local_registry.official_registry}}{% endif %}"
 
-
 # localrepository
 local_repository: http://192.168.1.181/repo/k8s
 #https://gitee.com/liu-rui/repo/raw/master
 
 
+# Origin OPTS by @KyleBai
+# Vars below are not in use.
+
+# A list of insecure registrys you might need to define
+add_registry:
+# - "gcr.io"
+
+insecure_registrys:
+# - "172.16.35.9:5000"
+
 # Enable docker registry
 registry: false
 registry_ui: false
 registry_url: "172.16.35.9:5000"
+
+docker_opts:
+# - "HTTP_PROXY=http://proxy.example.com:80/"
+# - "HTTPS_PROXY=https://proxy.example.com:443/"
 
 # Enable and disable ceph cluster
 ceph_cluster: false

@@ -41,7 +41,7 @@ spec:
       serviceAccountName: elasticsearch-logging
       initContainers:
       - name: elasticsearch-logging-init
-        image: alpine:3.6
+        image: {{ addon_images.alpine }}
         command: ["/sbin/sysctl", "-w", "vm.max_map_count={{ logging.elasticsearch.max_map_count }}"]
         securityContext:
           privileged: true

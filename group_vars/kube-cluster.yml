@@ -1,4 +1,6 @@
 ---
+cri_plugin: docker
+
 
 dir:
   bin: /usr/local/bin
