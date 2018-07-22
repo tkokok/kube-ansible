@@ -5,6 +5,8 @@
   become: yes
   roles:
   - { role: kubernetes/addon, tags: dashboard,  when: kube_dashboard,  addon: "{{ addons.dashboard }}" }
-  - { role: kubernetes/addon, tags: logging,    when: kube_logging,    addon: "{{ addons.logging }}" }
-  - { role: kubernetes/addon, tags: monitoring, when: kube_monitoring, addon: "{{ addons.monitoring }}" }
+  - { role: kubernetes/addon, tags: logging,    when: kube_logging.efk_stack,    addon: "{{ addons.efk_stack }}" }
+  - { role: kubernetes/addon, tags: monitoring, when: kube_monitoring.heapster, addon: "{{ addons.heapster }}" }
+  - { role: kubernetes/addon, tags: monitoring, when: kube_monitoring.prometheus, addon: "{{ addons.prometheus }}" }
+  - { role: kubernetes/addon, tags: monitoring, when: kube_monitoring.weave_scpoe, addon: "{{ addons.weave_scpoe }}" }
   - { role: kubernetes/addon, tags: ingress,    when: ingress,         addon: "{{ addons.ingress[ingress_type] }}" }

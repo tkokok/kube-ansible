@@ -22,6 +22,7 @@ DNS plugins support:
 Monitor plugins support:
 - [x] heapster #[Deprecation Timeline](https://github.com/kubernetes/heapster/blob/master/docs/deprecation.md)
 - [x] prometheus
+- [x] weave-scope
 
 Cluster network mechanism:
 - [x] iptables
@@ -232,7 +233,7 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiw
 
 ##### Login the addon's dashboard:
 - Dashboard: [https://API_SERVER:6443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/](https://API_SERVER:6443/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/)
-- Logging: [https://API_SERVER:6443/api/v1/namespaces/kube-system/services/kibana-logging/proxy/](https://API_SERVER:6443/api/v1/namespaces/kube-system/services/kibana-logging/proxy/)
+- Logging: [https://API_SERVER:6443/api/v1/namespaces/kube-system/services/kibana-logging/proxy](https://API_SERVER:6443/api/v1/namespaces/kube-system/services/kibana-logging/proxy)
 - Monitor: [https://API_SERVER:6443/api/v1/namespaces/kube-system/services/monitoring-grafana/proxy/](https://API_SERVER:6443/api/v1/namespaces/kube-system/services/monitoring-grafana/proxy/)
 
 > Copy and paste the `token` to dashboard.

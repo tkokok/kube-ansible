@@ -1,5 +1,4 @@
 ---
-
 addon_images:
   # kubernetes dashboard
   dashboard: "{{ final_registry_url }}/kubernetes/kubernetes-dashboard-amd64:v1.8.3"
@@ -12,6 +11,7 @@ addon_images:
   resizer: "{{ final_registry_url }}/kubernetes/addon-resizer:1.7"
   influxdb: "{{ final_registry_url }}/kubernetes/heapster-influxdb-amd64:v1.3.3"
   grafana: "{{ final_registry_url }}/kubernetes/heapster-grafana-amd64:v4.4.3"
+  weave_scope: "{{ final_registry_url }}/weaveworks/scope:1.9.0"
   # Kubernetes logging
   elasticsearch: "{{ final_registry_url }}/kubernetes/elasticsearch:v5.6.2"
   alpine: "{{ final_registry_url }}/kubernetes/alpine:3.6"

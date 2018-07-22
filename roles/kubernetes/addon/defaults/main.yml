@@ -10,7 +10,7 @@ addons:
     files:
       - kube-dns.yml
     name: kube-dns
-  logging:
+  efk_stack:
     files:
       - elasticsearch-rbac.yml
       - elasticsearch.yml
@@ -18,13 +18,20 @@ addons:
       - fluentd-daemonset.yml
       - fluentd-rbac.yml
       - kibana.yml
-    name: kube-logging
-  monitoring:
+    name: efk-stack
+  heapster:
     files:
       - heapster-rbac.yml
       - heapster.yml
       - influxdb-grafana.yml
-    name: kube-monitoring
+    name: heapster
+  prometheus:
+    files:
+    name: prometheus
+  weave_scpoe:
+    files:
+      - weave-scope.yml
+    name: weave-scope
   proxy:
     files:
       - kube-proxy-rbac.yml
