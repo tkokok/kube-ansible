@@ -2,11 +2,11 @@
 
 addon_images:
   # kubernetes dashboard
-  dashboard: "{{ final_registry_url }}/kubernetes/kubernetes-dashboard-amd64:v1.8.0"
+  dashboard: "{{ final_registry_url }}/kubernetes/kubernetes-dashboard-amd64:v1.8.3"
   # Kube-dns
-  kubedns: "{{ final_registry_url }}/kubernetes/k8s-dns-kube-dns-amd64:1.14.7"
-  dnsmasq: "{{ final_registry_url }}/kubernetes/k8s-dns-dnsmasq-nanny-amd64:1.14.7"
-  sidecar: "{{ final_registry_url }}/kubernetes/k8s-dns-sidecar-amd64:1.14.7"
+  kubedns: "{{ final_registry_url }}/kubernetes/k8s-dns-kube-dns-amd64:{{ kube_dns_version }}"
+  dnsmasq: "{{ final_registry_url }}/kubernetes/k8s-dns-dnsmasq-nanny-amd64:{{ kube_dns_version }}"
+  sidecar: "{{ final_registry_url }}/kubernetes/k8s-dns-sidecar-amd64:{{ kube_dns_version }}"
   # Kubernetes monitor
   heapster: "{{ final_registry_url }}/kubernetes/heapster-amd64:v1.5.0-beta.2"
   resizer: "{{ final_registry_url }}/kubernetes/addon-resizer:1.7"

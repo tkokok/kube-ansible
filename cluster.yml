@@ -1,5 +1,4 @@
 ---
-
 - hosts: certs
   become: yes
   roles:
@@ -13,7 +12,6 @@
 - hosts: masters
   become: yes
   roles:
-    - { role: gen-certs, tags: gen-certs }
     - { role: cri/docker, tags: docker }
     - { role: kubernetes/gen-configs, node_role: "master", tags: master-gen-config }
     - { role: kubernetes/ha, tags: ha }

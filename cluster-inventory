@@ -19,6 +19,9 @@ nodes
 [kube-addon:children]
 masters
 
+[versions:children]
+kube-cluster
+
 [all:vars]
 ansible_user=root
 ansible_password=PASSWD

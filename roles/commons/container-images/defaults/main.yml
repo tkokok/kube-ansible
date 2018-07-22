@@ -4,7 +4,7 @@ images:
   pod_infra: # registry.access.redhat.com/rhel7/pod-infrastructure
     name: pause-amd64
     repos: "{{ final_registry_url }}/kubernetes/"
-    tag: "3.0"
+    tag: "{{ kube_infra_image_version }}"
   apiserver:
     name: kube-apiserver-amd64
     repos: "{{ final_registry_url }}/kubernetes/"

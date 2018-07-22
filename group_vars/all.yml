@@ -6,7 +6,7 @@
 #   1.9.0 - 1.9.9
 #   1.10.0 - 1.10.5
 #   1.11.0
-kube_version: 1.9.9
+
 
 # CNI plugin,
 # Supported: calico, flannel, weave, canal or router.
